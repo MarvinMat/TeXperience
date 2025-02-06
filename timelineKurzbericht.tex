@@ -1,0 +1,62 @@
+% Timeline
+% Author: Stefan Kottwitz
+
+
+% https://www.packtpub.com/hardware-and-creative/latex-cookbook
+\documentclass[border = 5pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{timeline}
+\tikzstyle{legend}=[]
+\begin{document}
+\definecolor{htwOrange}{RGB}{245,156,0}
+
+
+\definecolor{htwOrange2}{RGB}{179, 126, 0}
+\definecolor{htwOrange3}{RGB}{255, 236, 100}
+\definecolor{htwOrange4}{RGB}{255, 218, 128}
+
+
+\definecolor{htwBlue}{RGB}{0,128,192}
+\begin{tikzpicture}[timespan={}, timeline height=1, timeline offset = 0.2]
+  \timeline[custom interval=true]{2019, 2020, 2021, 2022}
+  \begin{phases}
+    \phase{between week=1 and 2 in 0.0, involvement degree=1.0cm, color=htwOrange}
+    \phase{between week=1 and 2 in 0.35, involvement degree=2.0cm, color=htwOrange}
+    \phase{between week=1 and 2 in 0.7, involvement degree=1.3cm, color=htwOrange}
+    \phase{between week=2 and 3 in 0.25, involvement degree=3.2cm, color=htwOrange2}
+    \phase{between week=2 and 3 in 0.65, involvement degree=1.5cm, color=htwOrange2}
+    \phase{between week=2 and 3 in 1.28, involvement degree=3.5cm, color=htwOrange3}
+    \phase{between week=3 and 4 in 0.9, involvement degree=1.5cm,phase color=htwOrange4}
+    \phase{between week=3 and 4 in 1.2, involvement degree=2.0cm,phase color=htwOrange4}
+    \phase{between week=3 and 4 in 1.5, involvement degree=1cm,phase color=htwOrange4}
+  \end{phases}
+
+  \node [xshift=-0.6cm,yshift=1cm,anchor=east,
+         font=\Large\bfseries] at (phase-1.180) {};
+  \node [xshift=-0.6cm,yshift=-1cm,anchor=east,
+         font=\Large\bfseries] at (phase-1.180) {};
+  \addmilestone{at=phase-1.180,direction=90:2.5cm, text={\textbf{Projektstart}}, text options={above}}
+  %\addmilestone{at=phase-1.240,direction=240:1cm, text={}, text options={below}}
+  %\addmilestone{at=phase-2.130,direction=130:2.0cm, text={Schnittstellendefinition}, text options={above}}
+  %\addmilestone{at=phase-2.240,direction=240:1.5cm, text={Planungsmethoden},text options={below}}
+  \addmilestone{at=phase-1.270,direction=270:0.8cm, text={Workshops},text options={below}}
+  \addmilestone{at=phase-2.270,direction=270:1.2cm, text={Anforderungsdefinition},text options={below}}
+  \addmilestone{at=phase-3.270,direction=270:0.6cm, text={Arbeitspakete}, text options={below}}
+  %\addmilestone{at=phase-4.240,direction=240:1.5cm, text={Selbstorganisation},text options={below}}
+  %\addmilestone{at=phase-4.300,direction=300:0.5cm, text={Fähigkeitsmodell},text options={below}}
+    \addmilestone{at=phase-3.360,direction=90:2.0cm, text={\textbf{Anforderungen definiert}}, text options={above}}
+  
+   \addmilestone{at=phase-4.270,direction=270:1.3cm, text={Systemkonzept und -design}, text options={below}}
+     \addmilestone{at=phase-5.270,direction=270:0.75cm, text={Fähigkeitsmodell},text options={below}}
+    \addmilestone{at=phase-5.360,direction=90:2.5cm, text={\textbf{CASO Framework entworfen}}, text options={above}}
+  
+  \addmilestone{at=phase-6.270,direction=270:0.4cm, text={Realisierung CASO Framework}, text options={below}}
+  \addmilestone{at=phase-6.360,direction=90:2.0cm, text={\textbf{CASO Framework realisiert}}, text options={above}}
+  
+  \addmilestone{at=phase-7.270,direction=270:0.5cm, text={Demonstrator}, text options={below}}
+  \addmilestone{at=phase-8.270,direction=270:1cm, text={Evaluierung}, text options={below}}
+  \addmilestone{at=phase-9.270,direction=270:1cm, text={Optimierung}, text options={below}}
+  \addmilestone{at=phase-9.0,direction=90:2.5cm, text={\textbf{Projektabschluss}}, text options={above}}
+
+\end{tikzpicture}
+\end{document}

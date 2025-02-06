@@ -1,0 +1,106 @@
+\documentclass[border=10pt]{standalone}%{article}
+%\usepackage[margin=1cm]{geometry}
+\usepackage{pgfgantt}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+%\usetikzlibrary{positioning}
+
+\definecolor{htwOrange}{RGB}{245,156,0}
+\definecolor{htwBlue}{RGB}{0,128,192}
+
+\ganttset{group/.append style={gray},
+milestone/.append style={htwBlue},
+progress label node anchor/.append style={text=red}}
+\begin{document}
+
+%    \begin{figure}
+%    \centering
+     \begin{ganttchart}[%Specs
+     y unit title=.5cm,
+     y unit chart=1.0cm,
+     vgrid,hgrid,
+     newline shortcut=true,
+     title height=1,
+     %title/.style={fill=none},
+     title label font=\bfseries,%\footnotesize,
+     bar/.style={fill=htwOrange},
+     bar height=0.3,
+     bar label font=\footnotesize,
+     milestone label font=\footnotesize,
+%   progress label text={},
+     group right shift=0,
+     group top shift=0.3,
+     group height=.3,
+     group peaks width={0.2},
+     inline,
+     bar label node/.append style=%
+    {align=right}]{1}{42}
+    %labels
+    \gantttitle{CASO Projektablauf}{42}\\  % title 1
+    \gantttitle[]{2019}{6}                 % title 2
+    \gantttitle[]{2020}{12}        
+    \gantttitle[]{2021}{12}   
+    \gantttitle[]{2022}{12} \\   
+    \gantttitle{Q3}{3}
+    \gantttitle{Q4}{3}
+    \gantttitle{Q1}{3}
+    \gantttitle{Q2}{3}
+    \gantttitle{Q3}{3} 
+    \gantttitle{Q4}{3}
+    \gantttitle{Q1}{3}
+    \gantttitle{Q2}{3}
+    \gantttitle{Q3}{3} 
+    \gantttitle{Q4}{3}
+    \gantttitle{Q1}{3}
+    \gantttitle{Q2}{3}
+    \gantttitle{Q3}{3} 
+    \gantttitle{Q4}{3}\\
+    % Setting group if any
+    
+    \ganttgroup[name=Anforderungsanalyse, inline=false]{(I) Anforderungsanalyse}{1}{10}\\ 
+    \ganttbar[inline=false]{Anforderungen Schnittstellen}{1}{4}\\
+    \ganttbar[inline=false]{Anforderungen Planungsmethoden}{2}{10}\\
+    \ganttbar[inline=false]{Anforderungen Rezeptmanagement}{5}{10}\\
+    \ganttbar[inline=false]{Validierungskonzepte}{8}{10}\\
+    %\ganttlinkedmilestone[name=Anforderungskonzept, milestone inline label node/.style={right=0.5cm}, inline=true]{Anforderungskonzept}{6}\\
+    
+    \ganttgroup[name=System, inline=false]{(II) Systemkonzept und -design}{11}{21}\\ 
+    \ganttbar[inline=false]{Simulationsframework (CASO-SSOP)}{11}{21}\\
+    \ganttbar[inline=false]{Asset- und Integrationsframework (CASO-ASSET)}{11}{18}\\
+    \ganttbar[inline=false]{Realisierung von Benutzer-\ganttalignnewline und Systemschnittstellen}{16}{20}\\
+    \ganttbar[name=cap, inline=false]{Entwurf des Fähigkeitenmodells}{17}{20}\\
+    %\ganttmilestone[name=Architekturkonzept, milestone inline label node/.style={right=0.5cm}, inline=true]{Architekturkonzept}{14}\\
+    %\ganttlink[]{modell}{Architekturkonzept}
+
+    %\ganttlinkedmilestone[milestone inline label node/.style={right=0.5cm}, inline=true]{Demonstrator}{21}\\
+    
+    \ganttgroup[group label node/.append style={align=right},inline=false]{(III) Realisierung des \ganttalignnewline CASO Framework}{22}{31}\\
+     \ganttbar[inline=false]{Implementierung von\ganttalignnewline CASO-Framework}{22}{28}\\
+     \ganttbar[inline=false]{Entwicklung von Testwerkzeugen}{26}{29}\\
+     \ganttbar[inline=false]{Funktionale Validierung des CASO Frameworks}{28}{31}\\
+    %Testdatengenerator für Produktionen
+    %Informationsmodellgenerator
+
+    \ganttgroup[group label node/.append style={align=right}, inline=false]{(IV) Erprobung des CASO-\ganttalignnewline Demonstrators}{32}{40}\\
+    \ganttbar[inline=false]{Abbildung der Produktionen von Projektpartner\ganttalignnewline mit den CASO-Frameworks}{32}{36}\\
+    \ganttbar[inline=false]{Simulation der Produktion von ProMetall}{33}{34}\\
+    \ganttbar[inline=false]{Simulation der Produktion von adidas}{34}{36}\\
+    \ganttbar[inline=false]{Evaluierung der Ergebnisse}{37}{40}
+
+    \ganttset{vrule/.append style={gray}} % change the style
+        \ganttvrule{Anforderungen}{10} % check for changed style
+        
+    \ganttset{vrule/.append style={gray}} % change the style
+        \ganttvrule{Konzept}{21} % check for changed style
+        
+    \ganttset{vrule/.append style={gray}} % change the style
+        \ganttvrule{CASO Framework}{31} % check for changed style
+
+    \ganttset{vrule/.append style={htwBlue}} % change the style
+        \ganttvrule{Projektende}{40} % check for changed style
+    
+\end{ganttchart}
+%    \caption{Gantt diagram for 2013--2014 Project}
+%\end{figure}
+\end{document}
